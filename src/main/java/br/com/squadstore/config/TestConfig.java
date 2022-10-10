@@ -23,7 +23,6 @@ import br.com.squadstore.repositories.ProductRepository;
 import br.com.squadstore.repositories.OrdemItemRepository;
 
 
-
 @Configuration
 @Profile("test")
 public class TestConfig implements CommandLineRunner{

@@ -34,22 +34,21 @@ public class UserService {
     }
 
     public void delete(Long id) {
-        try{
+        try {
             repository.deleteById(id);
         } catch (EmptyResultDataAccessException e) {
             throw new ResourceNotFoundException(id);
         } catch (DataIntegrityViolationException e) {
             throw new DatabaseException(e.getMessage());
         }
-
     }
 
-    public User update(Long id, User obj){
-        try{
+    public User update(Long id, User obj) {
+        try {
             User entity = repository.getReferenceById(id);
             updateData(entity, obj);
             return repository.save(entity);
-        }catch (EntityNotFoundException e){
+        } catch (EntityNotFoundException e) {
             throw new ResourceNotFoundException(id);
         }
     }
@@ -59,5 +58,4 @@ public class UserService {
         entity.setEmail(obj.getEmail());
         entity.setPhone(obj.getPhone());
     }
-
 }

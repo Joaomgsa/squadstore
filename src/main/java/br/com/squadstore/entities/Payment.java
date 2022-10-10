@@ -22,7 +22,6 @@ public class Payment implements Serializable {
     private Order order;
 
     public Payment() {
-
     }
 
     public Payment(Long id, Instant moment, Order order) {

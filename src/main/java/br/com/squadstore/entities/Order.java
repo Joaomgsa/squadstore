@@ -12,13 +12,12 @@ import java.util.Set;
 @Entity
 @Table(name = "tb_order")
 public class Order implements Serializable {
-
     private static final long serialVersionUID = 1L;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private Instant momment;
+    private Instant moment;
 
     private Integer orderStatus;
 
@@ -29,16 +28,16 @@ public class Order implements Serializable {
     @OneToMany(mappedBy = "id.order")
     private Set<OrderItem> items = new HashSet<>();
 
-    @OneToMany(mappedBy = "order", cascade = CascadeType.ALL)
+    @OneToOne(mappedBy = "order", cascade = CascadeType.ALL)
     private Payment payment;
 
     public Order() {
     }
 
-    public Order(Long id, Instant momment, OrderStatus orderStatus, User client) {
+    public Order(Long id, Instant moment, OrderStatus orderStatus, User client) {
         super();
         this.id = id;
-        this.momment = momment;
+        this.moment = moment;
         this.client = client;
         setOrderStatus(orderStatus);
     }
@@ -51,12 +50,12 @@ public class Order implements Serializable {
         this.id = id;
     }
 
-    public Instant getMomment() {
-        return momment;
+    public Instant getMoment() {
+        return moment;
     }
 
-    public void setMomment(Instant momment) {
-        this.momment = momment;
+    public void setMoment(Instant moment) {
+        this.moment = moment;
     }
 
     public User getClient() {
@@ -67,11 +66,12 @@ public class Order implements Serializable {
         this.client = client;
     }
 
-    public OrderStatus getOrderStatus(){
+    public OrderStatus getOrderStatus() {
         return OrderStatus.valueOf(orderStatus);
     }
+
     public void setOrderStatus(OrderStatus orderStatus) {
-        if (orderStatus !=null){
+        if (orderStatus != null) {
             this.orderStatus = orderStatus.getCode();
         }
     }
@@ -95,6 +95,7 @@ public class Order implements Serializable {
         }
         return sum;
     }
+
     @Override
     public int hashCode() {
         final int prime = 31;

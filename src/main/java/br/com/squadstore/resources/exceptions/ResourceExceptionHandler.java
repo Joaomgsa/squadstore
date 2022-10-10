@@ -3,6 +3,7 @@ package br.com.squadstore.resources.exceptions;
 import br.com.squadstore.services.exceptions.DatabaseException;
 import br.com.squadstore.services.exceptions.ResourceNotFoundException;
 
+
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;
