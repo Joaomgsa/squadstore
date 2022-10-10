@@ -2,9 +2,12 @@ package br.com.squadstore.entities;
 
 import jakarta.persistence.*;
 
+import br.com.squadstore.entities.enums.OrderStatus;
+
 import java.io.Serializable;
 import java.time.Instant;
 import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Table(name = "tb_order")
@@ -24,7 +27,7 @@ public class Order implements Serializable {
     private User client;
 
     @OneToMany(mappedBy = "id.order")
-    private set<OrderItem> items = new HashSet<>();
+    private Set<OrderItem> items = new HashSet<>();
 
     @OneToMany(mappedBy = "order", cascade = CascadeType.ALL)
     private Payment payment;
@@ -33,7 +36,7 @@ public class Order implements Serializable {
     }
 
     public Order(Long id, Instant momment, OrderStatus orderStatus, User client) {
-        Super();
+        super();
         this.id = id;
         this.momment = momment;
         this.client = client;
@@ -67,9 +70,9 @@ public class Order implements Serializable {
     public OrderStatus getOrderStatus(){
         return OrderStatus.valueOf(orderStatus);
     }
-    public void setOrderStatus(Integer orderStatus) {
+    public void setOrderStatus(OrderStatus orderStatus) {
         if (orderStatus !=null){
-            this.orderStatus = orderStatus;
+            this.orderStatus = orderStatus.getCode();
         }
     }
 
@@ -81,7 +84,7 @@ public class Order implements Serializable {
         this.payment = payment;
     }
 
-    public set<OrderItem> getItems() {
+    public Set<OrderItem> getItems() {
         return items;
     }
 
