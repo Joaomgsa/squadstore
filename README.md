@@ -19,10 +19,10 @@ A API terá os seguintes endpoints:
 
 
 ## Domain Model:
-<img src="domainModel.png">
+<img src="domainModel.png" style="max-width:80%">
 
 ## Domain Instance:
-<img src="domainInstance.png">
+<img src="domainInstance.png" style="max-width:80%">
 
 ## Logical Layer:
-<img src="LogicalLayer.png">
+<img src="LogicalLayer.png" style="max-width:80%">
