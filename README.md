@@ -1,5 +1,5 @@
 # squadstore
-Uma API em Java e Spring Framework de uma loja virtual.
+Uma API em Java e Spring Framework , Spring JPA + Postges de uma loja virtual.
 ## Como a api deve funcionar?
 Nossa api deve responder as informações de uma loja virtual
 
