@@ -26,5 +26,3 @@ A API terá os seguintes endpoints:
 
 ## Logical Layer:
 <img src="LogicalLayer.png">
-
-## Escrever o diagrama de serviços
